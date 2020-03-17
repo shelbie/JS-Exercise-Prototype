@@ -12,13 +12,12 @@ function Airplane(name) {
   this.name = name;
   this.isFlying = false;
 }
-Airplane.prototype.takeOff = function () {
+Airplane.prototype.takeOff = function() {
   this.isFlying = true;
 };
-Airplane.prototype.land = function () {
+Airplane.prototype.land = function() {
   this.isFlying = false;
 };
-
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -40,25 +39,27 @@ Airplane.prototype.land = function () {
 */
 
 function Person(name, age) {
-this.name = name;
-this.age = age;
-this.stomach = [];
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
 
 Person.prototype.eat = function() {
- let i = 0; i <= 10; i++;
- if (this.stomach.length === i){
-   return this.stomach;
- }
-}
+  let i = 0;
+  i <= 10;
+  i++;
+  if (this.stomach.length === i) {
+    return this.stomach;
+  }
+};
 
 Person.prototype.poop = function() {
   this.stomach = 0;
-}
+};
 
-Person.prototype.toString = function(){
+Person.prototype.toString = function() {
   return `${this.name}, ${this.age}`;
-}
+};
 
 /*
   TASK 2
@@ -74,8 +75,23 @@ Person.prototype.toString = function(){
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
 
+Car.prototype.fill = function(gallons) {
+  this.tank += gallons;
+}
+
+Car.prototype.drive = function(distance) {
+  this.odometer += distance;
+ if (this.tank = 0){
+   return  `I ran out of fuel at ${this.odometer} miles!`;
+ }
+  
 }
 
 /*
@@ -85,9 +101,7 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
-}
+function Baby() {}
 
 /* 
   TASK 4
@@ -99,14 +113,21 @@ function Baby() {
   4. 
 */
 
-
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Baby) { module.exports.Baby = Baby }
+if (typeof exports !== "undefined") {
+  module.exports = module.exports || {};
+  if (Airplane) {
+    module.exports.Airplane = Airplane;
+  }
+  if (Person) {
+    module.exports.Person = Person;
+  }
+  if (Car) {
+    module.exports.Car = Car;
+  }
+  if (Baby) {
+    module.exports.Baby = Baby;
+  }
 }
