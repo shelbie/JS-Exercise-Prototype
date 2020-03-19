@@ -37,25 +37,31 @@ Airplane.prototype.land = function() {
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
-
+//created a function "Person" and gave name and age as arguments
 function Person(name, age) {
   this.name = name;
   this.age = age;
-  this.stomach = [];
+  this.stomach = []; // empty array
 }
 
+//prototype method called eat is a function that takes in "someFood"
 Person.prototype.eat = function(someFood) {
-
+//if statement - if the length of stomach's array is less than 10
   if (this.stomach.length < 10 ) {
+    //then return "add" food to the stomach array
     return this.stomach.push(someFood);
   } 
 };
 
+//prototype method called poop is a function that takes in no arguments
 Person.prototype.poop = function() {
+  //return an empty stomach array or original value ([])
   return this.stomach = [];
 };
 
+//prototype method toString (return a string) is a function that takes in no arguments
 Person.prototype.toString = function() {
+//return a string containing name and age
   return `${this.name}, ${this.age}`;
 };
 
@@ -72,7 +78,7 @@ Person.prototype.toString = function() {
     - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
-
+//function named car taking in model and milesPerGallon as arguments and assigning tank and odometer a default of zero.
 function Car(model, milesPerGallon) {
   this.model = model;
   this.milesPerGallon = milesPerGallon;
@@ -80,17 +86,27 @@ function Car(model, milesPerGallon) {
   this.odometer = 0;
 }
 
+//prototype method fill is  a function that takes in gallons as an argument 
 Car.prototype.fill = function(gallons) {
+
+  //appends gallons to tank (add)
   return this.tank += gallons;
 }
 
+//prototype method drive is a function that takes in distance as an argument
 Car.prototype.drive = function(distance) {
+  //if distance divided by milesPerGallon is greater than or equal to tank
   if (distance / this.milesPerGallon >= this.tank ) {
+    //append tank (or add) multiply milesPerGallon to odometer
     this.odometer += this.tank * this.milesPerGallon;
+    //return tank to zero
     this.tank = 0;
+    //return string
     return `I ran out of fuel at ${this.odometer}`
   }
+  //append (add) distance to odometer (store it on odometer)
   this.odometer += distance;
+  //append distance and divide milesPerGallon on tank (store it here)
   this.tank -= distance / this.milesPerGallon;
 };
 
@@ -101,16 +117,19 @@ Car.prototype.drive = function(distance) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
+//function named baby takes in name, age and favoriteToy as arguments.
 function Baby(name, age, favoriteToy) {
   this.name = name;
   this.age = age;
 this.favoriteToy = favoriteToy;
-
+//get Person on prototype and return this, name and age from
 Person.call(this, name, age);
 }
-
+//add baby prototype to person prototype 
 Baby.prototype = Object.create(Person.prototype);
+////prototype method called pay is a function that has no arguments
 Baby.prototype.play = function() {
+  //returns string
   return `Playing with ${this.favoriteToy}`;
 }
 
