@@ -144,10 +144,10 @@ Baby.prototype.play = function() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. global scope functions that appear on screen/window
+  2. after the dot is what is being reference. before the dot object.
+  3. dynamic - creating new instance referencing specific obj instance using new keyword
+  4. explicit binding - this is binding referenced object and returning the arguments
 */
 
 ///////// END OF CHALLENGE /////////
